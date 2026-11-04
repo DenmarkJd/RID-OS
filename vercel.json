@@ -1,10 +1,10 @@
 ﻿
 {
   "services": {
-    "frontend": {
+    "my_frontend": {
       "root": "frontend/"
     },
-    "backend": {
+    "my_backend": {
       "root": "backend/",
       "entrypoint": "app.main:app"
     }
@@ -13,13 +13,13 @@
     {
       "source": "/api/(.*)",
       "destination": {
-        "service": "backend"
+        "service": "my_backend"
       }
     },
     {
       "source": "/(.*)",
       "destination": {
-        "service": "frontend"
+        "service": "my_frontend"
       }
     }
   ]
