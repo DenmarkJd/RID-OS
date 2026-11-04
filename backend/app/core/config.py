@@ -1,8 +1,13 @@
 
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+# Resolve backend directory and explicitly load backend/.env
+BACKEND_DIR = Path(__file__).resolve().parents[2]
+ENV_FILE = BACKEND_DIR / ".env"
+
+load_dotenv(dotenv_path=ENV_FILE, override=False)
 
 
 class Settings:
