@@ -1,0 +1,8 @@
+
+fastapi
+uvicorn[standard]
+perplexityai
+python-dotenv
+supabase
+pydantic-settings
+httpx

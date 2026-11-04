@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RID-OS | Research Workspace</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-shell">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">R</div>
+            <div>
+                <h2>RID-OS</h2>
+                <span>RESEARCH INTELLIGENCE</span>
+            </div>
+        </div>
+
+        <button class="new-chat" id="newChatBtn">
+            <span>＋</span> New Research
+        </button>
+
+        <div class="side-label">WORKSPACE</div>
+        <button class="nav-item active">⌕ <span>Research Studio</span></button>
+        <button class="nav-item" id="historyNav">◷ <span>Research History</span></button>
+
+        <div class="side-label history-heading">RECENT RESEARCH</div>
+        <div id="historyList" class="history-list">
+            <p class="muted small">Your research history will appear here.</p>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="status-dot"></div>
+            <div>
+                <strong>Research Engine</strong>
+                <span>Perplexity Search API</span>
+            </div>
+            <span class="online">Online</span>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <span class="breadcrumb">Workspace /</span>
+                <strong>Research Studio</strong>
+            </div>
+            <div class="top-right">
+                <span class="demo-badge">LIVE API DEMO</span>
+                <div class="avatar">R</div>
+            </div>
+        </header>
+
+        <section class="workspace">
+            <div class="welcome" id="welcomeSection">
+                <div class="eyebrow"><span></span> INTELLIGENCE WORKSPACE</div>
+                <h1>Research with clarity.<br><span>Discover with evidence.</span></h1>
+                <p class="intro">
+                    Explore topics, discover relevant sources, and build
+                    evidence-backed research from across the web.
+                </p>
+
+                <form id="researchForm" class="search-panel">
+                    <textarea id="queryInput"
+                        placeholder="What would you like to research today?"
+                        minlength="3" maxlength="1000" required></textarea>
+                    <div class="search-footer">
+                        <span>Powered by Perplexity Search</span>
+                        <div class="search-actions">
+                            <select id="resultCount" aria-label="Number of results">
+                                <option value="5">5 sources</option>
+                                <option value="10" selected>10 sources</option>
+                                <option value="15">15 sources</option>
+                                <option value="20">20 sources</option>
+                            </select>
+                            <button type="submit" id="searchBtn">
+                                <span>⌕</span> Research
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="suggestions">
+                    <span>TRY RESEARCHING</span>
+                    <button class="suggestion">AI developments in 2026</button>
+                    <button class="suggestion">Climate change solutions</button>
+                    <button class="suggestion">Future of machine learning</button>
+                </div>
+            </div>
+
+            <section id="resultsSection" class="results-section hidden">
+                <div class="result-heading">
+                    <div>
+                        <div class="eyebrow">RESEARCH OUTPUT</div>
+                        <h2 id="resultTitle">Research results</h2>
+                        <p id="resultDescription"></p>
+                    </div>
+                    <button class="secondary-btn" id="newResearchBtn">＋ New Research</button>
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <span>Sources discovered</span>
+                        <strong id="sourceCount">0</strong>
+                    </div>
+                    <div class="stat-card">
+                        <span>Research status</span>
+                        <strong class="success-text">Completed</strong>
+                    </div>
+                </div>
+
+                <div class="section-title">
+                    <h3>Sources & Evidence</h3>
+                    <span>RANKED SEARCH RESULTS</span>
+                </div>
+                <div id="sourcesList" class="sources-list"></div>
+            </section>
+            <section id="historySection" class="history-section hidden">
+                <div class="result-heading">
+                    <div>
+                        <div class="eyebrow">YOUR RESEARCH LIBRARY</div>
+                        <h2>Research History</h2>
+                        <p>Access your previously completed research and collected evidence.</p>
+                    </div>
+                    <button class="secondary-btn" id="historyNewResearchBtn">
+                        ＋ New Research
+                    </button>
+                </div>
+
+                <div class="history-toolbar">
+                    <input type="search" id="historySearch"
+                        placeholder="Search previous research...">
+                    <button class="secondary-btn" id="refreshHistoryBtn">↻ Refresh</button>
+                </div>
+
+                <div id="historyCards" class="history-cards"></div>
+                <p id="historyEmpty" class="muted hidden">
+                    No research conversations found.
+                </p>
+            </section>
+            <div id="loadingState" class="loading-state hidden">
+                <div class="loader"></div>
+                <h3>Research in progress</h3>
+                <p>Searching the web and collecting relevant sources...</p>
+            </div>
+
+            <div id="errorBox" class="error-box hidden"></div>
+        </section>
+
+        <footer class="footer">
+            <span>RID-OS · Research Intelligence & Decision Operating System</span>
+            <span>Prototype · Search results require human review</span>
+        </footer>
+    </main>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
